@@ -96,6 +96,11 @@ public class Persona {
     public void setEstadoCivil(boolean EstadoCivil) {
         this.EstadoCivil = EstadoCivil;
     }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", edad=" + edad + ", telefono=" + telefono + ", direccion=" + direccion + ", genero=" + genero + ", EstadoCivil=" + EstadoCivil + '}';
+    }
     
     
     

@@ -5,6 +5,8 @@
  */
 package General;
 
+import Modelo.Persona;
+
 /**
  *
  * @author Bryan
@@ -13,6 +15,9 @@ public class MVC {
     
     public static void main(String[] args) {
         
+        Persona Bryan=new Persona("Bryan", "Flores", 1724440092, 20, 5112608, "Comite del Pueblo", 'M', false); 
+        
+        System.out.println(Bryan);
     }
     
 }
