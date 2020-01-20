@@ -3,19 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lenguaje.de.programación.pkg2;
+package General;
 
 /**
  *
  * @author Bryan
  */
-public class LenguajeDeProgramación2 {
-
-    /**
-     * @param args the command line arguments
-     */
+public class MVC {
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        
     }
     
 }
