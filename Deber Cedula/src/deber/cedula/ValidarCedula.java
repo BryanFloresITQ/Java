@@ -22,6 +22,8 @@ public class ValidarCedula {
         System.out.println("Ingrese el numero de cédula");
         String cedula=scan.next();
         
+        
+        
         for (int i = 0; i < cedula.length()-1; i++) {
             
             c=Integer.parseInt(cedula.charAt(i)+"");

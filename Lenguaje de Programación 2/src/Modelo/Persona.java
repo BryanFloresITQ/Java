@@ -15,14 +15,14 @@ public class Persona {
     
     String nombre;
     String apellido;
-    int cedula;
+    String cedula;
     int edad;
-    int telefono;
+    String telefono;
     String direccion;
     char genero;
     boolean EstadoCivil;
 
-    public Persona(String nombre, String apellido, int cedula, int edad, int telefono, String direccion, char genero, boolean EstadoCivil) {
+    public Persona(String nombre, String apellido, String cedula, int edad, String telefono, String direccion, char genero, boolean EstadoCivil) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
@@ -41,7 +41,7 @@ public class Persona {
         return apellido;
     }
 
-    public int getCedula() {
+    public String getCedula() {
         return cedula;
     }
 
@@ -49,7 +49,7 @@ public class Persona {
         return edad;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
@@ -73,7 +73,7 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public void setCedula(int cedula) {
+    public void setCedula(String cedula) {
         this.cedula = cedula;
     }
 
@@ -81,7 +81,7 @@ public class Persona {
         this.edad = edad;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
