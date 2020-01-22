@@ -11,11 +11,11 @@ package serie;
  */
 public class Calcular_Serie {
     
-    public int Calculo(int numero){
+    public double Calculo(int numero){
     
         Series series=new Series(numero);
         
-        int total=1;
+        double total=1;
         
     for(int i=0; i<series.getNumero(); i++){
     
