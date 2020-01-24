@@ -5,6 +5,7 @@
  */
 package tokens;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
@@ -14,6 +15,8 @@ import javax.swing.JOptionPane;
  * @author Bryan
  */
 public class Vector {
+    
+    ArrayList listaPrimo=new ArrayList();
     
     private int vector[];
 
@@ -61,5 +64,45 @@ public class Vector {
         return "vector: "+Arrays.toString(vector); //To change body of generated methods, choose Tools | Templates.
     }
     
+    
+    public void esPrimo(int dimension){
+    
+        
+        
+        for (int j=0; j<dimension; j++){
+            
+            boolean p=false;
+        
+        for (int i=2; i<vector[j]; i++){
+        
+        if(vector[j]%i==0){
+        
+        p=true;
+        
+        }
+        
+        }
+        
+        if(p==false){listaPrimo.add(vector[j]);}
+        
+        }
+    }
+    
+     public String listarPrimos(){
+    
+        String lista="";
+        
+         System.out.println("Los Primos son :");
+        
+        for (int i=0; i<listaPrimo.size(); i++){
+        
+            System.out.println("- "+listaPrimo.get(i));
+        
+            lista += listaPrimo.get(i).toString() + "\n";
+            
+        }
+    
+    return "";
+    }
 }
 

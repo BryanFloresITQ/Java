@@ -23,7 +23,10 @@ public class Tokens {
         
         Vector v=new Vector(dimension);
         
-        System.out.println(v);
+        v.esPrimo(dimension);
+        
+        
+        System.out.println(v.listarPrimos());
         
     }
  
