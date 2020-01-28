@@ -11,11 +11,17 @@ package Modelo;
  */
 public class Modelo {
     
-    private String nombre=null;
-    String descripcion=null;
-    int precio=0;
+    private String nombre;
+    String descripcion;
+    int precio;
 
-   
+    public Modelo() {
+        this.nombre = null;
+        this.descripcion = null;
+        this.precio = 0;
+    }
+
+
 
     public String getNombre() {
         return nombre;
@@ -40,13 +46,7 @@ public class Modelo {
     public void setPrecio(int precio) {
         this.precio = precio;
     }
-    
-    public void Insertar(){
-        
-        setNombre("XBox");
-        setDescripcion("Consola");
-        setPrecio(350);
-        
-        }
+
+
     
 }
