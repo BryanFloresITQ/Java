@@ -14,11 +14,21 @@ public class Modelo {
     private String nombre;
     String descripcion;
     int precio;
+    int id;
 
     public Modelo() {
         this.nombre = null;
         this.descripcion = null;
         this.precio = 0;
+        this.id = 0;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 
