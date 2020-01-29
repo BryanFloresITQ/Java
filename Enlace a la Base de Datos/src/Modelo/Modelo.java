@@ -11,7 +11,7 @@ package Modelo;
  */
 public class Modelo {
     
-    private String nombre;
+    String nombre;
     String descripcion;
     int precio;
     int id;

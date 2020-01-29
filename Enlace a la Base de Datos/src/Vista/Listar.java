@@ -6,7 +6,9 @@
 package Vista;
 
 import Controlador.Controlador;
-import Modelo.Modelo;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,6 +22,7 @@ public class Listar extends javax.swing.JFrame {
      */
     public Listar() {
         initComponents();
+        txt_Buscar.setText("");
     }
 
     /**
@@ -83,19 +86,25 @@ public class Listar extends javax.swing.JFrame {
        
         Controlador c=new Controlador();
         
+        if ("".equals(txt_Buscar.getText())){
         
+            c.BuscarTodo();
         
-        if (cmb_Busqueda.getSelectedItem()=="Id"){
+        }
+        
+        else if (cmb_Busqueda.getSelectedItem()=="Id"){
         
           c.BuscarArticuloId(Integer.parseInt(txt_Buscar.getText()));
         
         }
         
-        if(cmb_Busqueda.getSelectedItem() == "Nombre"){
+        else if(cmb_Busqueda.getSelectedItem() == "Nombre"){
         
         c.BuscarNombre(txt_Buscar.getText());
         
         }
+        
+        
         
         
     }//GEN-LAST:event_btn_BuscarActionPerformed

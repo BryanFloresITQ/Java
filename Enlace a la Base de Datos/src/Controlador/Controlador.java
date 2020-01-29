@@ -25,6 +25,37 @@ public class Controlador {
     conector conn=new conector();
     ResultSet rs=null;
     Listar ls=new Listar();
+    Modelo mo=new Modelo();
+    
+    String nombre;
+    String descripcion;
+    int precio;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+    
+    
            
     
     public void ingresarArticulos(Modelo nuevoArticulo){
@@ -58,9 +89,9 @@ public class Controlador {
              
              while (rs.next()) {                
                 
-                 System.out.println(rs.getString(2));
-                 System.out.println(rs.getString(3));
-                 System.out.println(rs.getString(4));
+                 this.nombre = rs.getString(2);
+                 this.descripcion = rs.getString(3);
+                 this.precio = rs.getInt(4);
         } 
         }
         
@@ -73,10 +104,9 @@ public class Controlador {
     
     public void BuscarNombre(String nombre){
     
-    String sqlBuscarId = "select * from articulos where nombre = ?";
+    String sqlBuscarNombre = "select * from articulos where nombre LIKE "+"'%"+nombre+"%'"+"";
         try {
-            ps = conn.getConexion().prepareStatement(sqlBuscarId);
-            ps.setString(1, nombre);
+            ps = conn.getConexion().prepareStatement(sqlBuscarNombre);
              rs = ps.executeQuery();
              
              while (rs.next()) {                
@@ -88,6 +118,43 @@ public class Controlador {
         } catch (SQLException ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void BuscarTodo(){
+    
+        try {
+            String sqlBuscarTodo = "select * from articulos";
+            
+            ps = conn.getConexion().prepareStatement(sqlBuscarTodo);
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {                
+                
+                System.out.println(rs.getString(2));
+                System.out.println(rs.getString(3));
+                System.out.println(rs.getString(4));
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    
+    
+    }
+    
+    public void Actualizar(int id){
+    
+    
+    String sqlUpdate = "UPDATE articulos SET nombre='"+this.nombre+"', descripcion='"+this.descripcion+"'"+"', precio="+this.precio+""+" WHERE idArticulo="+id;
+        try {
+            ps = conn.getConexion().prepareStatement(sqlUpdate);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Datos Actualizados Correctamente");
+        } catch (SQLException ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    
     }
 
 }
