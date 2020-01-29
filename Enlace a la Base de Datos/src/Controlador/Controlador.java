@@ -37,7 +37,6 @@ public class Controlador {
             ps.setString(2, nuevoArticulo.getDescripcion());
             ps.setInt(3, nuevoArticulo.getPrecio());
             ps.executeUpdate();
-             conn.Desconectar();
             JOptionPane.showMessageDialog(null, "Datos Ingresados");
             
         } catch (SQLException ex) {
@@ -63,14 +62,12 @@ public class Controlador {
                  System.out.println(rs.getString(3));
                  System.out.println(rs.getString(4));
         } 
-         conn.Desconectar();
         }
         
         catch (SQLException ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
         }
    
-//        conn.Desconectar();
         
 }
     
@@ -88,11 +85,9 @@ public class Controlador {
                  System.out.println(rs.getString(3));
                  System.out.println(rs.getString(4));
         } 
-             conn.Desconectar();
         } catch (SQLException ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
         }
-//    conn.Desconectar();
     }
 
 }
