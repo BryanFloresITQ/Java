@@ -11,6 +11,7 @@ import conexion.conector;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -142,18 +143,50 @@ public class Controlador {
     
     }
     
+    public ArrayList obtenerDatos() throws SQLException{
+        ArrayList<Modelo> listaId = new ArrayList<>();        
+        String selectDatos = "select * from articulos";
+        ps = conn.getConexion().prepareStatement(selectDatos);
+        rs = ps.executeQuery();        
+        while (rs.next()) {            
+            Modelo art = new Modelo();
+            art.setId(rs.getInt(1));
+            art.setNombre(rs.getString(2));
+            art.setDescripcion(rs.getString(3));
+            art.setPrecio(rs.getInt(4));
+            listaId.add(art);
+        }
+        return listaId;
+    }
+    
     public void Actualizar(int id){
     
     
-    String sqlUpdate = "UPDATE articulos SET nombre='"+this.nombre+"', descripcion='"+this.descripcion+"'"+"', precio="+this.precio+""+" WHERE idArticulo="+id;
+    String sqlUpdate = "UPDATE articulos SET nombre= ? , descripcion= ?, precio= ? WHERE idArticulo= "+id;
         try {
             ps = conn.getConexion().prepareStatement(sqlUpdate);
+            ps.setString(1, nombre);
+            ps.setString(2, descripcion);
+            ps.setInt(3, precio);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Datos Actualizados Correctamente");
         } catch (SQLException ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
         }
     
+    
+    }
+    
+    public void Eliminar(String nombre){
+    
+        try {
+            String delete= "delete from articulos where nombre= ?";
+            ps = conn.getConexion().prepareStatement(delete);
+            ps.setString(1, nombre);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     
     }
 
