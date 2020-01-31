@@ -15,7 +15,15 @@ public class Herencia {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        Perro p=new Perro(1, "Perro", "Masculino", "Conny", 5);
+        
+        p.datosPerro();
+        
+        Gato g=new Gato(30, "Verdes", "Felino", "Femenino", "Michu", 1);
+        
+        g.datosGato();
+        
     }
     
 }
