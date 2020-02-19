@@ -8,6 +8,7 @@ package Vista;
 import Controlador.Controlador;
 import Modelo.Alumno;
 import Modelo.Modelo;
+import Modelo.Notas;
 import java.awt.event.KeyEvent;
 
 /**
@@ -237,7 +238,7 @@ getToolkit().beep();
 
     private void btn_IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_IngresarActionPerformed
         
-        Alumno ingresar=new Alumno(0, "", "");
+        Alumno ingresar=new Alumno( 0, "", "");
         Controlador controlador=new Controlador();
         
         ingresar.setCI(Integer.parseInt(txt_CI.getText()));

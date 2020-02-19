@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import Controlador.Controlador;
+
 /**
  *
  * @author Santiago
@@ -188,7 +190,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_menu_InspectorMouseClicked
 
     private void menu_SalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_SalirMouseClicked
-         System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_menu_SalirMouseClicked
 
     private void menu_IngresoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_IngresoMouseClicked

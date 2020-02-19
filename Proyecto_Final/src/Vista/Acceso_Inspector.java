@@ -7,6 +7,9 @@ package Vista;
 
 import Controlador.Controlador;
 import Modelo.Inspector;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -66,6 +69,11 @@ public class Acceso_Inspector extends javax.swing.JFrame {
         btn_alumnosYcalificaciones.setFont(new java.awt.Font("Eras Demi ITC", 2, 18)); // NOI18N
         btn_alumnosYcalificaciones.setForeground(new java.awt.Color(0, 0, 0));
         btn_alumnosYcalificaciones.setText("Alumnos y calificaciones");
+        btn_alumnosYcalificaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_alumnosYcalificacionesActionPerformed(evt);
+            }
+        });
 
         btn_cuadroGeneral.setBackground(new java.awt.Color(0, 153, 204));
         btn_cuadroGeneral.setFont(new java.awt.Font("Eras Demi ITC", 2, 18)); // NOI18N
@@ -185,6 +193,16 @@ public class Acceso_Inspector extends javax.swing.JFrame {
         inicio.setVisible(true);
         
     }//GEN-LAST:event_btn_cancelarActionPerformed
+
+    private void btn_alumnosYcalificacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alumnosYcalificacionesActionPerformed
+        
+     
+            Alumnos_Calificaciones ac=new Alumnos_Calificaciones();
+            this.setVisible(false);
+            ac.setVisible(true);
+        
+        
+    }//GEN-LAST:event_btn_alumnosYcalificacionesActionPerformed
 
     /**
      * @param args the command line arguments

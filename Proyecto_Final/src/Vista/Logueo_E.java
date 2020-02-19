@@ -8,6 +8,8 @@ package Vista;
 import Controlador.Controlador;
 import Modelo.Alumno;
 import Modelo.Inspector;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -146,14 +148,37 @@ public class Logueo_E extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_CancelarKeyPressed
 
     private void btn_IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_IngresarActionPerformed
-
+        
+        int cont = 0;
+        
+        ArrayList cedulas=new ArrayList();
+        
         controlador.LogueoAlumno(datos);
         
-        String CI = datos.getCI() + "";
+        cedulas = datos.getCedulas();
         
-        System.out.println(CI);
+        for (int i=0; i<cedulas.size(); i++){
         
+            if(cedulas.get(i).toString().equals(txt_Usuario_E.getText())){
+            
+            cont = 1;
+            
+            }  
+        }
         
+        if(cont == 1){
+        
+            Inicio in=new Inicio();
+            this.setVisible(false);
+            in.setVisible(true);
+            
+        } 
+        
+        else{
+              
+                JOptionPane.showMessageDialog(null, "Credenciales Incorrectas", "ERROR", 0);
+                
+                }  
     }//GEN-LAST:event_btn_IngresarActionPerformed
 
     private void txt_Usuario_EKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Usuario_EKeyTyped

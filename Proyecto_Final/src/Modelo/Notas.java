@@ -5,138 +5,144 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Bryan
  */
 public class Notas{
     
-    int id;
+    ArrayList CI = new ArrayList();
     
-    float ingles;
-    float lenguaje;
-    float fisica;
-    float matematica;
-    float quimica;
-    float edu_fisica;
-    float geometria;
-    float computacion;
-    float biologia;
-    float anatomia;
-    
-    float Promedio;
+        ArrayList ingles = new ArrayList();
+        ArrayList lenguaje = new ArrayList();
+        ArrayList fisica = new ArrayList();
+        ArrayList matematica = new ArrayList();
+        ArrayList quimica = new ArrayList();
+        ArrayList efisica = new ArrayList();
+        ArrayList geometria = new ArrayList();
+        ArrayList computacion = new ArrayList();
+        ArrayList biologia = new ArrayList();
+        ArrayList anatomia = new ArrayList();
+        
+    ArrayList promedio = new ArrayList();
 
-    public Notas(int id, float ingles, float lenguaje, float fisica, float matematica, float quimica, float edu_fisica, float geometria, float computacion, float biologia, float anatomia, float Promedio) {
-        this.id = id;
-        this.ingles = ingles;
-        this.lenguaje = lenguaje;
-        this.fisica = fisica;
-        this.matematica = matematica;
-        this.quimica = quimica;
-        this.edu_fisica = edu_fisica;
-        this.geometria = geometria;
-        this.computacion = computacion;
-        this.biologia = biologia;
-        this.anatomia = anatomia;
-        this.Promedio = Promedio;
+    int ci;
+
+    public Notas(int ci) {
+        this.ci = ci;
     }
 
-    public int getId() {
-        return id;
+    public int getCi() {
+        return ci;
     }
 
-    public float getIngles() {
+    public void setCi(int ci) {
+        this.ci = ci;
+    }
+    
+    
+    
+    public Notas() {
+    }
+    
+    public ArrayList getCI() {
+        return CI;
+    }
+
+    public ArrayList getIngles() {
         return ingles;
     }
 
-    public float getLenguaje() {
+    public ArrayList getLenguaje() {
         return lenguaje;
     }
 
-    public float getFisica() {
+    public ArrayList getFisica() {
         return fisica;
     }
 
-    public float getMatematica() {
+    public ArrayList getMatematica() {
         return matematica;
     }
 
-    public float getQuimica() {
+    public ArrayList getQuimica() {
         return quimica;
     }
 
-    public float getEdu_fisica() {
-        return edu_fisica;
+    public ArrayList getEfisica() {
+        return efisica;
     }
 
-    public float getGeometria() {
+    public ArrayList getGeometria() {
         return geometria;
     }
 
-    public float getComputacion() {
+    public ArrayList getComputacion() {
         return computacion;
     }
 
-    public float getBiologia() {
+    public ArrayList getBiologia() {
         return biologia;
     }
 
-    public float getAnatomia() {
+    public ArrayList getAnatomia() {
         return anatomia;
     }
 
-    public float getPromedio() {
-        return Promedio;
+    public ArrayList getPromedio() {
+        return promedio;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCI(ArrayList CI) {
+        this.CI = CI;
     }
 
-    public void setIngles(float ingles) {
+    public void setIngles(ArrayList ingles) {
         this.ingles = ingles;
     }
 
-    public void setLenguaje(float lenguaje) {
+    public void setLenguaje(ArrayList lenguaje) {
         this.lenguaje = lenguaje;
     }
 
-    public void setFisica(float fisica) {
+    public void setFisica(ArrayList fisica) {
         this.fisica = fisica;
     }
 
-    public void setMatematica(float matematica) {
+    public void setMatematica(ArrayList matematica) {
         this.matematica = matematica;
     }
 
-    public void setQuimica(float quimica) {
+    public void setQuimica(ArrayList quimica) {
         this.quimica = quimica;
     }
 
-    public void setEdu_fisica(float edu_fisica) {
-        this.edu_fisica = edu_fisica;
+    public void setEfisica(ArrayList efisica) {
+        this.efisica = efisica;
     }
 
-    public void setGeometria(float geometria) {
+    public void setGeometria(ArrayList geometria) {
         this.geometria = geometria;
     }
 
-    public void setComputacion(float computacion) {
+    public void setComputacion(ArrayList computacion) {
         this.computacion = computacion;
     }
 
-    public void setBiologia(float biologia) {
+    public void setBiologia(ArrayList biologia) {
         this.biologia = biologia;
     }
 
-    public void setAnatomia(float anatomia) {
+    public void setAnatomia(ArrayList anatomia) {
         this.anatomia = anatomia;
     }
 
-    public void setPromedio(float Promedio) {
-        this.Promedio = Promedio;
+    public void setPromedio(ArrayList promedio) {
+        this.promedio = promedio;
     }
+
     
-    
-    
+   
 }
