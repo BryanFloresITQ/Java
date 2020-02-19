@@ -15,6 +15,8 @@ import java.awt.event.KeyEvent;
  * @author Bryan
  */
 public class IngresarAlumno extends javax.swing.JFrame {
+    
+    int cont=0;
 
     /**
      * Creates new form IngresarAlumno
@@ -64,6 +66,11 @@ public class IngresarAlumno extends javax.swing.JFrame {
         });
 
         btn_Cancelar.setText("Cancelar");
+        btn_Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CancelarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("CI:");
 
@@ -210,8 +217,8 @@ getToolkit().beep();
     private void txt_CIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_CIKeyTyped
 
 char car = evt.getKeyChar();
-if(Character.isDigit(car)){
-
+if(Character.isDigit(car) && cont<10){
+cont=cont+1;
 }else{
 evt.consume();
 getToolkit().beep();
@@ -225,7 +232,7 @@ getToolkit().beep();
         txt_CI.setText("");
         txt_Nombre1.setText("");
         txt_Nombre2.setText("");
-        
+        cont = 0;
     }//GEN-LAST:event_btn_LimpiarActionPerformed
 
     private void btn_IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_IngresarActionPerformed
@@ -245,9 +252,18 @@ getToolkit().beep();
         txt_Nombre1.setText("");
         txt_Nombre2.setText("");
         
-        
+        cont = 0;
         
     }//GEN-LAST:event_btn_IngresarActionPerformed
+
+    private void btn_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarActionPerformed
+        
+        cont = 0;
+        Acceso_Inspector acceso=new Acceso_Inspector();
+        this.setVisible(false);
+        acceso.setVisible(true);
+        
+    }//GEN-LAST:event_btn_CancelarActionPerformed
 
     /**
      * @param args the command line arguments

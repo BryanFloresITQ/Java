@@ -5,11 +5,18 @@
  */
 package Vista;
 
+import Controlador.Controlador;
+import Modelo.Alumno;
+import Modelo.Inspector;
+
 /**
  *
  * @author Santiago
  */
 public class Logueo_E extends javax.swing.JFrame {
+    
+    Alumno datos=new Alumno(0, "", "");
+    Controlador controlador=new Controlador();
 
     /**
      * Creates new form Logueo_E
@@ -140,6 +147,13 @@ public class Logueo_E extends javax.swing.JFrame {
 
     private void btn_IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_IngresarActionPerformed
 
+        controlador.LogueoAlumno(datos);
+        
+        String CI = datos.getCI() + "";
+        
+        System.out.println(CI);
+        
+        
     }//GEN-LAST:event_btn_IngresarActionPerformed
 
     private void txt_Usuario_EKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Usuario_EKeyTyped

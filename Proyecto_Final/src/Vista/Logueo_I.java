@@ -5,11 +5,20 @@
  */
 package Vista;
 
+import Controlador.Controlador;
+import Modelo.Inspector;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Santiago
  */
 public class Logueo_I extends javax.swing.JFrame {
+    
+    Inspector datos=new Inspector("", 0, "", "");
+    Controlador controlador=new Controlador();
+    
+    
 
     /**
      * Creates new form Logueo
@@ -187,7 +196,27 @@ public class Logueo_I extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_CancelarKeyPressed
 
     private void btn_IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_IngresarActionPerformed
-
+        
+       controlador.Logueo(datos);
+        
+        String Usuario = datos.getCI()+"";
+        String Password = datos.getPassword();        
+        
+        if(txt_Usuario_I.getText().equals(Usuario) && txt_Contrasena.getText().equals(Password)){
+        
+            Acceso_Inspector acceso=new Acceso_Inspector();
+            
+            this.setVisible(false);
+            acceso.setVisible(true);
+        
+        }
+        
+        else{
+        
+            JOptionPane.showMessageDialog(null, "Datos Ingresados Incorrectos", "ERROR", 0);
+            
+        }
+        
     }//GEN-LAST:event_btn_IngresarActionPerformed
 
     private void txt_Usuario_IKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Usuario_IKeyTyped

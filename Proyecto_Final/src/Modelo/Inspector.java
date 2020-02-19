@@ -17,6 +17,8 @@ public class Inspector extends Modelo{
         super(CI, nombres, apellidos);
         this.password = password;
     }
+    
+
 
     public String getPassword() {
         return password;

@@ -12,6 +12,7 @@ package Modelo;
 public class Notas{
     
     int id;
+    
     float ingles;
     float lenguaje;
     float fisica;

@@ -41,7 +41,7 @@ public class Inicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/itq.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Bryan\\Documents\\GitHub\\Java\\Proyecto_Final\\src\\imagenes\\itq.png")); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
