@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Alumnos_Calificaciones extends javax.swing.JFrame {
 
+    int cont = 0;
     DefaultTableModel modelo;
     Controlador controlador=new Controlador();
     Notas notas=new Notas();
@@ -31,6 +32,8 @@ public class Alumnos_Calificaciones extends javax.swing.JFrame {
      */
     public Alumnos_Calificaciones(){
         initComponents();
+        
+        txt_ci.setText("");
         
         controlador.obtenerDatos(notas);
         modelo = new DefaultTableModel(){@Override
@@ -83,6 +86,15 @@ public class Alumnos_Calificaciones extends javax.swing.JFrame {
         
     }
     
+    public void VaciarTabla(){
+        DefaultTableModel tb = (DefaultTableModel) tbl_Todo.getModel();
+        int a = tbl_Todo.getRowCount()-1;
+        for (int i = a; i >= 0; i--) {          
+        tb.removeRow(tb.getRowCount()-1);
+        }
+        //cargaTicket();
+    }
+    
 			
     
 
@@ -98,7 +110,7 @@ public class Alumnos_Calificaciones extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        Check_ci = new javax.swing.JTextField();
+        txt_ci = new javax.swing.JTextField();
         btn_filtro = new javax.swing.JButton();
         btn_eliminar = new javax.swing.JButton();
         btn_actualizar = new javax.swing.JButton();
@@ -114,7 +126,18 @@ public class Alumnos_Calificaciones extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
         jLabel2.setText("Número de Cédula :");
 
+        txt_ci.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_ciKeyTyped(evt);
+            }
+        });
+
         btn_filtro.setText("Filtrar");
+        btn_filtro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_filtroActionPerformed(evt);
+            }
+        });
 
         btn_eliminar.setText("Eliminar");
         btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -124,8 +147,18 @@ public class Alumnos_Calificaciones extends javax.swing.JFrame {
         });
 
         btn_actualizar.setText("Actualizar");
+        btn_actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_actualizarActionPerformed(evt);
+            }
+        });
 
         btn_regresar.setText("Regresar");
+        btn_regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresarActionPerformed(evt);
+            }
+        });
 
         tbl_Todo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,7 +194,7 @@ public class Alumnos_Calificaciones extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
-                                .addComponent(Check_ci, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txt_ci, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel1))
                         .addGap(18, 18, 18)
                         .addComponent(btn_filtro))
@@ -184,7 +217,7 @@ public class Alumnos_Calificaciones extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Check_ci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_ci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(btn_filtro))
                 .addGap(18, 18, 18)
@@ -209,11 +242,85 @@ public class Alumnos_Calificaciones extends javax.swing.JFrame {
             
             modelo.removeRow(fila);
             
+            JOptionPane.showMessageDialog(null, "Datos Eliminados", "Delete", 1);
+            
         }else{
             JOptionPane.showMessageDialog(this,"Debe seleccionar una fila");
         }
         
     }//GEN-LAST:event_btn_eliminarActionPerformed
+
+    private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
+        
+        Acceso_Inspector acceso=new Acceso_Inspector();
+        
+        this.setVisible(false);
+        acceso.setVisible(true);
+        
+        cont=0;
+        
+    }//GEN-LAST:event_btn_regresarActionPerformed
+
+    private void txt_ciKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ciKeyTyped
+
+        char car = evt.getKeyChar();
+if(Character.isDigit(car) && cont<10){
+    
+    cont++;
+        
+}else{
+evt.consume();
+getToolkit().beep();
+}  
+        
+    }//GEN-LAST:event_txt_ciKeyTyped
+
+    private void btn_filtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_filtroActionPerformed
+       
+        VaciarTabla();
+        
+        controlador.BuscarCI(notas,Integer.parseInt(txt_ci.getText()));
+        
+        Object []object = new Object[12];
+        
+        for (int i=0; i<notas.getCI().size(); i++){
+                
+                object[0] = notas.getCI().get(i);
+                object[1] = notas.getIngles().get(i);
+                object[2] = notas.getLenguaje().get(i);
+                object[3] = notas.getFisica().get(i);
+                object[4] = notas.getMatematica().get(i);
+                object[5] = notas.getQuimica().get(i);
+                object[6] = notas.getEfisica().get(i);
+                object[7] = notas.getGeometria().get(i);
+                object[8] = notas.getComputacion().get(i);
+                object[9] = notas.getBiologia().get(i);
+                object[10] = notas.getAnatomia().get(i);
+                object[11] = notas.getPromedio().get(i);
+                
+                modelo.addRow(object);     
+        }
+        
+    }//GEN-LAST:event_btn_filtroActionPerformed
+
+    private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
+
+int fila = tbl_Todo.getSelectedRow();
+        if(fila != -1){
+            
+            Actualizar actualizar=new Actualizar((int) modelo.getValueAt(fila, 0));
+        
+        this.setVisible(false);
+        actualizar.setVisible(true);
+        
+        cont=0;
+            
+        }else{
+            JOptionPane.showMessageDialog(this,"Debe seleccionar una fila");
+        }        
+        
+        
+    }//GEN-LAST:event_btn_actualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,7 +328,6 @@ public class Alumnos_Calificaciones extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Check_ci;
     private javax.swing.JButton btn_actualizar;
     private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_filtro;
@@ -230,5 +336,6 @@ public class Alumnos_Calificaciones extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbl_Todo;
+    private javax.swing.JTextField txt_ci;
     // End of variables declaration//GEN-END:variables
 }

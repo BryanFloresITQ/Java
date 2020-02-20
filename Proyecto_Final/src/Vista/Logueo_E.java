@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class Logueo_E extends javax.swing.JFrame {
     
+    int contador=0;
     Alumno datos=new Alumno(0, "", "");
     Controlador controlador=new Controlador();
 
@@ -141,6 +142,8 @@ public class Logueo_E extends javax.swing.JFrame {
         Inicio Inicio_E = new Inicio();
         this.setVisible(false);
         Inicio_E.setVisible(true);
+        
+        contador=0;
     }//GEN-LAST:event_btn_CancelarActionPerformed
 
     private void btn_CancelarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_CancelarKeyPressed
@@ -168,9 +171,9 @@ public class Logueo_E extends javax.swing.JFrame {
         
         if(cont == 1){
         
-            Inicio in=new Inicio();
+            Cuadro_General cuadro=new Cuadro_General();
             this.setVisible(false);
-            in.setVisible(true);
+            cuadro.setVisible(true);
             
         } 
         
@@ -178,13 +181,17 @@ public class Logueo_E extends javax.swing.JFrame {
               
                 JOptionPane.showMessageDialog(null, "Credenciales Incorrectas", "ERROR", 0);
                 
-                }  
+                }
+        
+        contador=0;
     }//GEN-LAST:event_btn_IngresarActionPerformed
 
     private void txt_Usuario_EKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Usuario_EKeyTyped
 
 char car = evt.getKeyChar();
-if(Character.isDigit(car)){
+if(Character.isDigit(car) && contador<10){
+    
+    contador++;
 
 }else{
 evt.consume();

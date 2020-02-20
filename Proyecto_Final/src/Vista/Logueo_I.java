@@ -17,6 +17,7 @@ public class Logueo_I extends javax.swing.JFrame {
     
     Inspector datos=new Inspector("", 0, "", "");
     Controlador controlador=new Controlador();
+    int cont=0;
     
     
 
@@ -189,6 +190,8 @@ public class Logueo_I extends javax.swing.JFrame {
         this.setVisible(false);
         inicio.setVisible(true);
         
+        cont=0;
+        
     }//GEN-LAST:event_btn_CancelarActionPerformed
 
     private void btn_CancelarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_CancelarKeyPressed
@@ -217,12 +220,16 @@ public class Logueo_I extends javax.swing.JFrame {
             
         }
         
+        cont=0;
+        
     }//GEN-LAST:event_btn_IngresarActionPerformed
 
     private void txt_Usuario_IKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Usuario_IKeyTyped
 
 char car = evt.getKeyChar();
-if(Character.isDigit(car)){
+if(Character.isDigit(car)&& cont<10){
+        
+        cont++;
 
 }else{
 evt.consume();

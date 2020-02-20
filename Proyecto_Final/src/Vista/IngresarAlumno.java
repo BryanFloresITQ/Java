@@ -10,6 +10,7 @@ import Modelo.Alumno;
 import Modelo.Modelo;
 import Modelo.Notas;
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -66,7 +67,7 @@ public class IngresarAlumno extends javax.swing.JFrame {
             }
         });
 
-        btn_Cancelar.setText("Cancelar");
+        btn_Cancelar.setText("Regresar");
         btn_Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_CancelarActionPerformed(evt);
@@ -237,7 +238,12 @@ getToolkit().beep();
     }//GEN-LAST:event_btn_LimpiarActionPerformed
 
     private void btn_IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_IngresarActionPerformed
-        
+if(txt_CI.getText() == "" || txt_Nombre1.getText() == "" || txt_Nombre2.getText() == "" || txt_Apellido1.getText() == "" || txt_Apellido2.getText()== ""){
+
+    JOptionPane.showMessageDialog(null, "Datos Incompletos", "ERROR", 0);
+
+}
+else{
         Alumno ingresar=new Alumno( 0, "", "");
         Controlador controlador=new Controlador();
         
@@ -253,8 +259,8 @@ getToolkit().beep();
         txt_Nombre1.setText("");
         txt_Nombre2.setText("");
         
+        }
         cont = 0;
-        
     }//GEN-LAST:event_btn_IngresarActionPerformed
 
     private void btn_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarActionPerformed

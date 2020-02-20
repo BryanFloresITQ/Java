@@ -42,6 +42,12 @@ public class Listar extends javax.swing.JFrame {
 
         cmb_Busqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id", "Nombre" }));
 
+        txt_Buscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_BuscarKeyTyped(evt);
+            }
+        });
+
         btn_Buscar.setText("Buscar");
         btn_Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +114,10 @@ public class Listar extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btn_BuscarActionPerformed
+
+    private void txt_BuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_BuscarKeyTyped
 
     /**
      * @param args the command line arguments

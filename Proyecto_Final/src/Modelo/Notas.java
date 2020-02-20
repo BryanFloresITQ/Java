@@ -29,10 +29,124 @@ public class Notas{
     ArrayList promedio = new ArrayList();
 
     int ci;
+    float InglesN;
+    float LenguajeN;
+    float FisicaN;
+    float MatematicaN;
+    float QuimicaN;
+    float EfisicaN;
+    float GeometriaN;
+    float ComputacionN;
+    float BiologiaN;
+    float AnatomiaN;
+    float PromedioN;
 
-    public Notas(int ci) {
+    public Notas(int ci, float InglesN, float LenguajeN, float FisicaN, float MatematicaN, float QuimicaN, float EfisicaN, float GeometriaN, float ComputacionN, float BiologiaN, float AnatomiaN, float PromedioN) {
         this.ci = ci;
+        this.InglesN = InglesN;
+        this.LenguajeN = LenguajeN;
+        this.FisicaN = FisicaN;
+        this.MatematicaN = MatematicaN;
+        this.QuimicaN = QuimicaN;
+        this.EfisicaN = EfisicaN;
+        this.GeometriaN = GeometriaN;
+        this.ComputacionN = ComputacionN;
+        this.BiologiaN = BiologiaN;
+        this.AnatomiaN = AnatomiaN;
+        this.PromedioN = PromedioN;
     }
+
+    public void setInglesN(float InglesN) {
+        this.InglesN = InglesN;
+    }
+
+    public void setLenguajeN(float LenguajeN) {
+        this.LenguajeN = LenguajeN;
+    }
+
+    public void setFisicaN(float FisicaN) {
+        this.FisicaN = FisicaN;
+    }
+
+    public void setMatematicaN(float MatematicaN) {
+        this.MatematicaN = MatematicaN;
+    }
+
+    public void setQuimicaN(float QuimicaN) {
+        this.QuimicaN = QuimicaN;
+    }
+
+    public void setEfisicaN(float EfisicaN) {
+        this.EfisicaN = EfisicaN;
+    }
+
+    public void setGeometriaN(float GeometriaN) {
+        this.GeometriaN = GeometriaN;
+    }
+
+    public void setComputacionN(float ComputacionN) {
+        this.ComputacionN = ComputacionN;
+    }
+
+    public void setBiologiaN(float BiologiaN) {
+        this.BiologiaN = BiologiaN;
+    }
+
+    public void setAnatomiaN(float AnatomiaN) {
+        this.AnatomiaN = AnatomiaN;
+    }
+
+    public void setPromedioN(float PromedioN) {
+        this.PromedioN = PromedioN;
+    }
+
+    
+    
+    public float getInglesN() {
+        return InglesN;
+    }
+
+    public float getLenguajeN() {
+        return LenguajeN;
+    }
+
+    public float getFisicaN() {
+        return FisicaN;
+    }
+
+    public float getMatematicaN() {
+        return MatematicaN;
+    }
+
+    public float getQuimicaN() {
+        return QuimicaN;
+    }
+
+    public float getEfisicaN() {
+        return EfisicaN;
+    }
+
+    public float getGeometriaN() {
+        return GeometriaN;
+    }
+
+    public float getComputacionN() {
+        return ComputacionN;
+    }
+
+    public float getBiologiaN() {
+        return BiologiaN;
+    }
+
+    public float getAnatomiaN() {
+        return AnatomiaN;
+    }
+
+    public float getPromedioN() {
+        return PromedioN;
+    }
+    
+    
 
     public int getCi() {
         return ci;
