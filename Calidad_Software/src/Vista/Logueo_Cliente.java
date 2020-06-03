@@ -7,15 +7,19 @@ package Vista;
 
 import Controlador.Controlador;
 import Modelo.Usuario;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Bryan
  */
 public class Logueo_Cliente extends javax.swing.JFrame {
-    
+    FondoPanel fondo = new FondoPanel();
     Controlador controlador=new Controlador();
     Usuario user=new Usuario();
 
@@ -23,6 +27,7 @@ public class Logueo_Cliente extends javax.swing.JFrame {
      * Creates new form Cliente
      */
     public Logueo_Cliente() {
+        this.setContentPane(fondo);
         initComponents();
     }
 
@@ -42,12 +47,15 @@ public class Logueo_Cliente extends javax.swing.JFrame {
         btn_Ingresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        jLabel1.setFont(new java.awt.Font("Elephant", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Book Antiqua", 2, 36)); // NOI18N
         jLabel1.setText("Cliente");
 
+        jLabel2.setFont(new java.awt.Font("Book Antiqua", 2, 14)); // NOI18N
         jLabel2.setText("Nombre de Usuario: ");
 
+        btn_Volver.setFont(new java.awt.Font("Book Antiqua", 3, 14)); // NOI18N
         btn_Volver.setText("Volver");
         btn_Volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,6 +63,7 @@ public class Logueo_Cliente extends javax.swing.JFrame {
             }
         });
 
+        btn_Ingresar.setFont(new java.awt.Font("Book Antiqua", 3, 14)); // NOI18N
         btn_Ingresar.setText("Ingresar");
         btn_Ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,37 +75,37 @@ public class Logueo_Cliente extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(511, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
+                        .addGap(109, 109, 109)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(btn_Volver)
-                        .addGap(32, 32, 32)
-                        .addComponent(btn_Ingresar)))
-                .addContainerGap(75, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btn_Volver)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_Ingresar))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(18, 18, 18)
+                            .addComponent(txt_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(489, 489, 489))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(75, 75, 75)
                 .addComponent(jLabel1)
                 .addGap(72, 72, 72)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txt_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Volver)
                     .addComponent(btn_Ingresar))
-                .addGap(33, 33, 33))
+                .addGap(146, 146, 146))
         );
 
         pack();
@@ -189,4 +198,15 @@ public class Logueo_Cliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField txt_Usuario;
     // End of variables declaration//GEN-END:variables
+class FondoPanel extends JPanel
+    {
+        private Image imagen;
+        @Override
+        public void paint(Graphics g) {
+            imagen = new ImageIcon(getClass().getResource("/Imágenes/Login.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(),this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
 }

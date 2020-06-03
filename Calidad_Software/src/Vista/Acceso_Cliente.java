@@ -5,16 +5,22 @@
  */
 package Vista;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Bryan
  */
 public class Acceso_Cliente extends javax.swing.JFrame {
-
+    FondoPanel fondo = new FondoPanel();
     /**
      * Creates new form Acceso_Cliente
      */
     public Acceso_Cliente() {
+        this.setContentPane(fondo);
         initComponents();
     }
 
@@ -30,8 +36,9 @@ public class Acceso_Cliente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        jLabel1.setFont(new java.awt.Font("Elephant", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Book Antiqua", 3, 36)); // NOI18N
         jLabel1.setText("Cliente");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -41,14 +48,14 @@ public class Acceso_Cliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(152, 152, 152)
                 .addComponent(jLabel1)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel1)
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
 
         pack();
@@ -92,4 +99,15 @@ public class Acceso_Cliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+class FondoPanel extends JPanel
+    {
+        private Image imagen;
+        @Override
+        public void paint(Graphics g) {
+            imagen = new ImageIcon(getClass().getResource("/Imágenes/Login.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(),this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
 }

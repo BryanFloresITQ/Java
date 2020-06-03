@@ -5,16 +5,22 @@
  */
 package Vista;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Bryan
  */
 public class Acceso_Admin extends javax.swing.JFrame {
-
+    FondoPanel fondo = new FondoPanel();
     /**
      * Creates new form Acceso_Admin
      */
     public Acceso_Admin() {
+        this.setContentPane(fondo);
         initComponents();
     }
 
@@ -35,11 +41,18 @@ public class Acceso_Admin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Elephant", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Book Antiqua", 3, 36)); // NOI18N
         jLabel1.setText("Administrativo");
 
+        btn_Gestion_Libros.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         btn_Gestion_Libros.setText("Gestión de Libros");
+        btn_Gestion_Libros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Gestion_LibrosActionPerformed(evt);
+            }
+        });
 
+        btn_Gestion_Usuarios.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         btn_Gestion_Usuarios.setText("Gestión de Usuarios");
         btn_Gestion_Usuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -47,8 +60,10 @@ public class Acceso_Admin extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jButton1.setText("Ver Facturación");
 
+        btn_Salir.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         btn_Salir.setText("Salir");
         btn_Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,36 +76,36 @@ public class Acceso_Admin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addComponent(btn_Gestion_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
-                .addComponent(btn_Gestion_Libros, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(128, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(295, 295, 295)
+                .addContainerGap(457, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(392, 392, 392)
                 .addComponent(btn_Salir)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addComponent(btn_Gestion_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_Gestion_Libros, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(167, 167, 167)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(169, 169, 169))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btn_Salir)))
-                .addGap(67, 67, 67)
+                        .addComponent(btn_Salir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel1)))
+                .addGap(292, 292, 292)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_Gestion_Libros, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Gestion_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Gestion_Libros, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         pack();
@@ -110,6 +125,16 @@ public class Acceso_Admin extends javax.swing.JFrame {
         a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_SalirActionPerformed
+
+    private void btn_Gestion_LibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Gestion_LibrosActionPerformed
+        
+        
+        Gestion_Libros a=new Gestion_Libros();
+        
+        a.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btn_Gestion_LibrosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,4 +178,15 @@ public class Acceso_Admin extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+class FondoPanel extends JPanel
+    {
+        private Image imagen;
+        @Override
+        public void paint(Graphics g) {
+            imagen = new ImageIcon(getClass().getResource("/Imágenes/Login.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(),this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
 }

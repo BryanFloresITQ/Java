@@ -24,20 +24,20 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-              <Component id="btn_Gestion_Usuarios" min="-2" pref="157" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-              <Component id="btn_Gestion_Libros" min="-2" pref="143" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="145" max="-2" attributes="0"/>
-              <EmptySpace pref="128" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="295" max="-2" attributes="0"/>
+              <EmptySpace pref="457" max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="392" max="-2" attributes="0"/>
               <Component id="btn_Salir" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
+              <Component id="btn_Gestion_Usuarios" min="-2" pref="175" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btn_Gestion_Libros" min="-2" pref="189" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
+              <Component id="jButton1" min="-2" pref="145" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -46,21 +46,21 @@
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btn_Salir" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="292" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btn_Gestion_Libros" alignment="3" min="-2" pref="65" max="-2" attributes="0"/>
                   <Component id="btn_Gestion_Usuarios" alignment="3" min="-2" pref="65" max="-2" attributes="0"/>
+                  <Component id="btn_Gestion_Libros" alignment="3" min="-2" pref="65" max="-2" attributes="0"/>
                   <Component id="jButton1" alignment="3" min="-2" pref="65" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="76" max="32767" attributes="0"/>
+              <EmptySpace pref="150" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,18 +69,27 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Elephant" size="24" style="3"/>
+          <Font name="Book Antiqua" size="36" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Administrativo"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btn_Gestion_Libros">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Book Antiqua" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Gesti&#xf3;n de Libros"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_Gestion_LibrosActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_Gestion_Usuarios">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Book Antiqua" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Gesti&#xf3;n de Usuarios"/>
       </Properties>
       <Events>
@@ -89,11 +98,17 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Book Antiqua" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Ver Facturaci&#xf3;n"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btn_Salir">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Book Antiqua" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>
       <Events>

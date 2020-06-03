@@ -8,13 +8,17 @@ package Vista;
 import Controlador.Controlador;
 import Modelo.Ingreso_Usuario;
 import Modelo.Usuario;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Bryan
  */
 public class Actualizar_Usuario extends javax.swing.JFrame {
-
+    FondoPanel fondo = new FondoPanel();
     Controlador controlador=new Controlador();
     Ingreso_Usuario user=new Ingreso_Usuario();
     
@@ -22,6 +26,7 @@ public class Actualizar_Usuario extends javax.swing.JFrame {
      * Creates new form Actualizar_Usuario
      */
     public Actualizar_Usuario(int ci) {
+        this.setContentPane(fondo);
         initComponents();
         
         Controlador controlador=new Controlador();
@@ -83,28 +88,39 @@ public class Actualizar_Usuario extends javax.swing.JFrame {
         btn_Cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        jLabel1.setFont(new java.awt.Font("Elephant", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Book Antiqua", 3, 36)); // NOI18N
         jLabel1.setText("Actualizar Usuarios");
 
+        jLabel2.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jLabel2.setText("Cédula: ");
 
         txt_Cedula.setEditable(false);
+        txt_Cedula.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
 
+        jLabel3.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jLabel3.setText("Nombre: ");
 
+        jLabel4.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jLabel4.setText("Apellido: ");
 
+        jLabel5.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jLabel5.setText("Teléfono: ");
 
+        jLabel6.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jLabel6.setText("Dirección: ");
 
+        jLabel7.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jLabel7.setText("Nombre de Usuario: ");
 
+        jLabel8.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jLabel8.setText("Contraseña: ");
 
+        jLabel9.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jLabel9.setText("Cargo: ");
 
+        cmb_Rol.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         cmb_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Encargado", "Cliente" }));
         cmb_Rol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +128,19 @@ public class Actualizar_Usuario extends javax.swing.JFrame {
             }
         });
 
+        txt_Telefono.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+
+        txt_Nombre.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+
+        txt_Usuario.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+
+        txt_Contrasenia.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+
+        txt_Apellido.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+
+        txt_Direccion.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+
+        btn_Actualizar.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         btn_Actualizar.setText("Actualizar");
         btn_Actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,6 +148,7 @@ public class Actualizar_Usuario extends javax.swing.JFrame {
             }
         });
 
+        btn_Cancelar.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         btn_Cancelar.setText("Volver");
         btn_Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,7 +194,7 @@ public class Actualizar_Usuario extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addGap(18, 18, 18)
                             .addComponent(txt_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                 .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(89, 89, 89))
             .addGroup(layout.createSequentialGroup()
@@ -218,7 +248,7 @@ public class Actualizar_Usuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(txt_Contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Actualizar)
                     .addComponent(btn_Cancelar))
@@ -291,4 +321,15 @@ public class Actualizar_Usuario extends javax.swing.JFrame {
     private javax.swing.JTextField txt_Telefono;
     private javax.swing.JTextField txt_Usuario;
     // End of variables declaration//GEN-END:variables
+class FondoPanel extends JPanel
+    {
+        private Image imagen;
+        @Override
+        public void paint(Graphics g) {
+            imagen = new ImageIcon(getClass().getResource("/Imágenes/Login.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(),this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
 }

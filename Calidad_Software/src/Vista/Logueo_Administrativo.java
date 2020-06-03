@@ -7,14 +7,20 @@ package Vista;
 
 import Controlador.Controlador;
 import Modelo.Usuario;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Bryan
  */
 public class Logueo_Administrativo extends javax.swing.JFrame {
+    FondoPanel fondo = new FondoPanel();
+    
     
     Controlador controlador=new Controlador();
     Usuario user=new Usuario();
@@ -23,6 +29,7 @@ public class Logueo_Administrativo extends javax.swing.JFrame {
      * Creates new form Administrativo
      */
     public Logueo_Administrativo() {
+        this.setContentPane(fondo);
         initComponents();
         rdt_Admin.setSelected(true);
     }
@@ -48,14 +55,18 @@ public class Logueo_Administrativo extends javax.swing.JFrame {
         rdt_Encargado = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        jLabel1.setFont(new java.awt.Font("Elephant", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Book Antiqua", 2, 36)); // NOI18N
         jLabel1.setText("Administrativo");
 
+        jLabel2.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
         jLabel2.setText("Nombre de Usuario: ");
 
+        jLabel3.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
         jLabel3.setText("Contraseña: ");
 
+        btn_Volver.setFont(new java.awt.Font("Book Antiqua", 2, 14)); // NOI18N
         btn_Volver.setText("Volver");
         btn_Volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +74,7 @@ public class Logueo_Administrativo extends javax.swing.JFrame {
             }
         });
 
+        btn_Ingresar.setFont(new java.awt.Font("Book Antiqua", 2, 14)); // NOI18N
         btn_Ingresar.setText("Ingresar");
         btn_Ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,67 +83,69 @@ public class Logueo_Administrativo extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(rdt_Admin);
+        rdt_Admin.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         rdt_Admin.setText("Administrador");
+        rdt_Admin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdt_AdminActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(rdt_Encargado);
+        rdt_Encargado.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         rdt_Encargado.setText("Encargado");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(475, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(jLabel3)))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_Usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                            .addComponent(txt_Password)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(rdt_Admin)
-                            .addComponent(btn_Volver))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(rdt_Encargado))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
-                                .addComponent(btn_Ingresar)))))
-                .addContainerGap(72, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(rdt_Encargado))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(btn_Volver)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_Ingresar))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txt_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txt_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(479, 479, 479))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(78, 78, 78)
                 .addComponent(jLabel1)
-                .addGap(33, 33, 33)
+                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rdt_Admin)
-                    .addComponent(rdt_Encargado))
-                .addGap(35, 35, 35)
+                    .addComponent(rdt_Encargado)
+                    .addComponent(rdt_Admin))
+                .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txt_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txt_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
+                .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_Ingresar)
-                    .addComponent(btn_Volver))
-                .addContainerGap(68, Short.MAX_VALUE))
+                    .addComponent(btn_Volver)
+                    .addComponent(btn_Ingresar))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         pack();
@@ -216,6 +230,10 @@ public class Logueo_Administrativo extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_IngresarActionPerformed
 
+    private void rdt_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdt_AdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdt_AdminActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -264,4 +282,15 @@ public class Logueo_Administrativo extends javax.swing.JFrame {
     private javax.swing.JTextField txt_Password;
     private javax.swing.JTextField txt_Usuario;
     // End of variables declaration//GEN-END:variables
+class FondoPanel extends JPanel
+    {
+        private Image imagen;
+        @Override
+        public void paint(Graphics g) {
+            imagen = new ImageIcon(getClass().getResource("/Imágenes/Login.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(),this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
 }

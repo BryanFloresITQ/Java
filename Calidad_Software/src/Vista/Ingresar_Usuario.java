@@ -8,19 +8,24 @@ package Vista;
 import Controlador.Controlador;
 import Modelo.Ingreso_Usuario;
 import Modelo.Usuario;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Bryan
  */
 public class Ingresar_Usuario extends javax.swing.JFrame {
-
+    FondoPanel fondo = new FondoPanel();
     /**
      * Creates new form Ingreso_Usuario
      */
     public Ingresar_Usuario() {
+        this.setContentPane(fondo);
         initComponents();
         txt_Nombre.setText("");
         txt_Apellido.setText("");
@@ -62,26 +67,36 @@ public class Ingresar_Usuario extends javax.swing.JFrame {
         btn_Volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        jLabel1.setFont(new java.awt.Font("Elephant", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Book Antiqua", 2, 36)); // NOI18N
         jLabel1.setText("Ingreso de Usuarios");
 
+        jLabel2.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jLabel2.setText("Nombre: ");
 
+        jLabel3.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jLabel3.setText("Apellido: ");
 
+        jLabel4.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jLabel4.setText("Cédula: ");
 
+        jLabel5.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jLabel5.setText("Teléfono");
 
+        jLabel6.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jLabel6.setText("Dirección: ");
 
+        jLabel7.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jLabel7.setText("Nombre de Usuario:");
 
+        jLabel8.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jLabel8.setText("Contraseña");
 
+        jLabel9.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         jLabel9.setText("Cargo: ");
 
+        cmb_Rol.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         cmb_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Encargado", "Cliente" }));
         cmb_Rol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,6 +104,21 @@ public class Ingresar_Usuario extends javax.swing.JFrame {
             }
         });
 
+        txt_Cedula.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+
+        txt_Nombre.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+
+        txt_Direccion.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+
+        txt_Contrasenia.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+
+        txt_Usuario.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+
+        txt_Apellido.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+
+        txt_Telefono.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+
+        btn_Ingresar.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         btn_Ingresar.setText("Ingresar");
         btn_Ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +126,7 @@ public class Ingresar_Usuario extends javax.swing.JFrame {
             }
         });
 
+        btn_Limpiar.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         btn_Limpiar.setText("Limpiar");
         btn_Limpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +134,7 @@ public class Ingresar_Usuario extends javax.swing.JFrame {
             }
         });
 
+        btn_Volver.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         btn_Volver.setText("<");
         btn_Volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +195,7 @@ public class Ingresar_Usuario extends javax.swing.JFrame {
                         .addComponent(btn_Ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(64, 64, 64)
                         .addComponent(btn_Limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,7 +235,7 @@ public class Ingresar_Usuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(txt_Contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -340,4 +372,15 @@ public class Ingresar_Usuario extends javax.swing.JFrame {
     private javax.swing.JTextField txt_Telefono;
     private javax.swing.JTextField txt_Usuario;
     // End of variables declaration//GEN-END:variables
+class FondoPanel extends JPanel
+    {
+        private Image imagen;
+        @Override
+        public void paint(Graphics g) {
+            imagen = new ImageIcon(getClass().getResource("/Imágenes/Login.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(),this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
 }

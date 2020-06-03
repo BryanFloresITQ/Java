@@ -7,7 +7,11 @@ package Vista;
 
 import Controlador.Controlador;
 import Modelo.Usuario;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Bryan
  */
 public class Gestion_Usuarios extends javax.swing.JFrame {
-
+    FondoPanel fondo = new FondoPanel();
     DefaultTableModel modelo;
     Controlador controlador = new Controlador();
     Usuario user = new Usuario();
@@ -25,6 +29,7 @@ public class Gestion_Usuarios extends javax.swing.JFrame {
      * Creates new form Gestion_Usuarios
      */
     public Gestion_Usuarios() {
+        this.setContentPane(fondo);
        initComponents();
        
        modelo = new DefaultTableModel(){@Override
@@ -105,7 +110,7 @@ public class Gestion_Usuarios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Elephant", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Book Antiqua", 2, 36)); // NOI18N
         jLabel1.setText("Gestión de Usuarios");
 
         tbl_Todo.setModel(new javax.swing.table.DefaultTableModel(
@@ -121,6 +126,7 @@ public class Gestion_Usuarios extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbl_Todo);
 
+        btn_Volver.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         btn_Volver.setText("<");
         btn_Volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +134,7 @@ public class Gestion_Usuarios extends javax.swing.JFrame {
             }
         });
 
+        btn_Editar.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         btn_Editar.setText("Editar");
         btn_Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,6 +142,7 @@ public class Gestion_Usuarios extends javax.swing.JFrame {
             }
         });
 
+        btn_Eliminar.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         btn_Eliminar.setText("Eliminar");
         btn_Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,6 +150,7 @@ public class Gestion_Usuarios extends javax.swing.JFrame {
             }
         });
 
+        btn_Ingresar.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         btn_Ingresar.setText("Ingresar Nuevo Usuario");
         btn_Ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,22 +165,21 @@ public class Gestion_Usuarios extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btn_Volver)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(435, 435, 435)
                 .addComponent(jLabel1)
-                .addGap(342, 342, 342))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn_Eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_Editar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(404, 404, 404)
-                        .addComponent(btn_Ingresar)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 991, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_Editar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_Eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
+                .addGap(58, 58, 58))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_Ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(471, 471, 471))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,16 +191,16 @@ public class Gestion_Usuarios extends javax.swing.JFrame {
                         .addComponent(jLabel1)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(138, 138, 138)
+                        .addComponent(btn_Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(btn_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(btn_Editar)
-                        .addGap(40, 40, 40)
-                        .addComponent(btn_Eliminar)))
-                .addGap(18, 18, 18)
-                .addComponent(btn_Ingresar)
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addGap(38, 38, 38)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(btn_Ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
         );
 
         pack();
@@ -295,4 +303,15 @@ public class Gestion_Usuarios extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbl_Todo;
     // End of variables declaration//GEN-END:variables
+class FondoPanel extends JPanel
+    {
+        private Image imagen;
+        @Override
+        public void paint(Graphics g) {
+            imagen = new ImageIcon(getClass().getResource("/Imágenes/Login.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(),this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
 }

@@ -5,17 +5,22 @@
  */
 package Vista;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Bryan
  */
 public class Inicio extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Inicio
-     */
+    
+    FondoPanel fondo = new FondoPanel();
+    
     public Inicio() {
         initComponents();
+        this.setContentPane(fondo);
     }
 
     /**
@@ -75,6 +80,7 @@ public class Inicio extends javax.swing.JFrame {
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         menu_logueo.setText("Loguearse");
 
@@ -112,11 +118,11 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 862, Short.MAX_VALUE)
+            .addGap(0, 700, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 475, Short.MAX_VALUE)
+            .addGap(0, 477, Short.MAX_VALUE)
         );
 
         pack();
@@ -197,4 +203,17 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenu menu_logueo;
     private javax.swing.JMenu menu_salir;
     // End of variables declaration//GEN-END:variables
+
+    class FondoPanel extends JPanel
+    {
+        private Image imagen;
+        @Override
+        public void paint(Graphics g) {
+            imagen = new ImageIcon(getClass().getResource("/Imágenes/Inicio.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(),this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
 }
+
