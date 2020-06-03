@@ -109,8 +109,9 @@ public class Gestion_Usuarios extends javax.swing.JFrame {
         btn_Ingresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        jLabel1.setFont(new java.awt.Font("Book Antiqua", 2, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Book Antiqua", 3, 36)); // NOI18N
         jLabel1.setText("Gestión de Usuarios");
 
         tbl_Todo.setModel(new javax.swing.table.DefaultTableModel(
@@ -126,7 +127,7 @@ public class Gestion_Usuarios extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbl_Todo);
 
-        btn_Volver.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+        btn_Volver.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
         btn_Volver.setText("<");
         btn_Volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,7 +135,7 @@ public class Gestion_Usuarios extends javax.swing.JFrame {
             }
         });
 
-        btn_Editar.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+        btn_Editar.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
         btn_Editar.setText("Editar");
         btn_Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +143,7 @@ public class Gestion_Usuarios extends javax.swing.JFrame {
             }
         });
 
-        btn_Eliminar.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+        btn_Eliminar.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
         btn_Eliminar.setText("Eliminar");
         btn_Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,7 +151,7 @@ public class Gestion_Usuarios extends javax.swing.JFrame {
             }
         });
 
-        btn_Ingresar.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+        btn_Ingresar.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
         btn_Ingresar.setText("Ingresar Nuevo Usuario");
         btn_Ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,8 +179,8 @@ public class Gestion_Usuarios extends javax.swing.JFrame {
                 .addGap(58, 58, 58))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_Ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(471, 471, 471))
+                .addComponent(btn_Ingresar)
+                .addGap(467, 467, 467))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

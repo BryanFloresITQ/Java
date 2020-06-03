@@ -33,22 +33,117 @@ public class Acceso_Encargado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btn_Clientes = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btn_Cliente = new javax.swing.JButton();
+        btn_Libros = new javax.swing.JButton();
+        btn_Salir = new javax.swing.JButton();
+
+        btn_Clientes.setText("Gestión de Clientes");
+        btn_Clientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ClientesActionPerformed(evt);
+            }
+        });
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1280, 720));
+
+        jLabel1.setFont(new java.awt.Font("Book Antiqua", 3, 36)); // NOI18N
+        jLabel1.setText("Encargado");
+
+        btn_Cliente.setText("Gestión de Clientes");
+        btn_Cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ClienteActionPerformed(evt);
+            }
+        });
+
+        btn_Libros.setText("Gestión de Libros");
+        btn_Libros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_LibrosActionPerformed(evt);
+            }
+        });
+
+        btn_Salir.setText("Salir");
+        btn_Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_SalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(191, 191, 191)
+                .addComponent(btn_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90)
+                .addComponent(btn_Libros, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(213, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(316, 316, 316)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_Salir)
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_Salir)))
+                .addGap(207, 207, 207)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Libros, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_ClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClientesActionPerformed
+
+        Gestion_Clientes a=new Gestion_Clientes();
+
+        a.setVisible(true);
+        this.setVisible(false);
+
+    }//GEN-LAST:event_btn_ClientesActionPerformed
+
+    private void btn_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClienteActionPerformed
+        
+        Gestion_Clientes a=new Gestion_Clientes();
+        
+        a.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btn_ClienteActionPerformed
+
+    private void btn_LibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LibrosActionPerformed
+        
+        Gestion_Libros_Encargado a=new Gestion_Libros_Encargado();
+        
+        a.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btn_LibrosActionPerformed
+
+    private void btn_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SalirActionPerformed
+        
+        Inicio i=new Inicio();
+        
+        i.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btn_SalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -86,6 +181,11 @@ public class Acceso_Encargado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Cliente;
+    private javax.swing.JButton btn_Clientes;
+    private javax.swing.JButton btn_Libros;
+    private javax.swing.JButton btn_Salir;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 class FondoPanel extends JPanel
     {

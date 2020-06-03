@@ -44,7 +44,7 @@ public class Acceso_Admin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Book Antiqua", 3, 36)); // NOI18N
         jLabel1.setText("Administrativo");
 
-        btn_Gestion_Libros.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+        btn_Gestion_Libros.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
         btn_Gestion_Libros.setText("Gestión de Libros");
         btn_Gestion_Libros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,7 +52,7 @@ public class Acceso_Admin extends javax.swing.JFrame {
             }
         });
 
-        btn_Gestion_Usuarios.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+        btn_Gestion_Usuarios.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
         btn_Gestion_Usuarios.setText("Gestión de Usuarios");
         btn_Gestion_Usuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,7 +60,7 @@ public class Acceso_Admin extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
         jButton1.setText("Ver Facturación");
 
         btn_Salir.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
@@ -78,29 +78,26 @@ public class Acceso_Admin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(457, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(392, 392, 392)
+                .addGap(360, 360, 360)
                 .addComponent(btn_Salir)
-                .addContainerGap())
+                .addGap(38, 38, 38))
             .addGroup(layout.createSequentialGroup()
                 .addGap(107, 107, 107)
-                .addComponent(btn_Gestion_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_Gestion_Usuarios)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_Gestion_Libros, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(167, 167, 167)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(169, 169, 169))
+                .addGap(187, 187, 187)
+                .addComponent(jButton1)
+                .addGap(137, 137, 137))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_Salir))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel1)))
-                .addGap(292, 292, 292)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(btn_Salir))
+                .addGap(291, 291, 291)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Gestion_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Gestion_Libros, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)

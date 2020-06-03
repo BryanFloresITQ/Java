@@ -83,8 +83,10 @@ public class Inicio extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
         menu_logueo.setText("Loguearse");
+        menu_logueo.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
 
         menu_Admin.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_MASK));
+        menu_Admin.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         menu_Admin.setText("Administrativo");
         menu_Admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +96,7 @@ public class Inicio extends javax.swing.JFrame {
         menu_logueo.add(menu_Admin);
 
         menu_Cliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        menu_Cliente.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         menu_Cliente.setText("Cliente");
         menu_Cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +108,7 @@ public class Inicio extends javax.swing.JFrame {
         jMenuBar1.add(menu_logueo);
 
         menu_salir.setText("Salir");
+        menu_salir.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         menu_salir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menu_salirMouseClicked(evt);

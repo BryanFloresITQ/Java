@@ -27,6 +27,8 @@ public class Gestion_Libros extends javax.swing.JFrame {
     public Gestion_Libros() {
         initComponents();
         
+        txt_Buscador.setText("");
+        
         modelo = new DefaultTableModel(){@Override
         public boolean isCellEditable(int row, int column) {
 				return false;
@@ -67,6 +69,15 @@ public class Gestion_Libros extends javax.swing.JFrame {
     
     }
     }
+    
+    public void VaciarTabla(){
+        DefaultTableModel tb = (DefaultTableModel) tbl_Todo1.getModel();
+        int a = tbl_Todo1.getRowCount()-1;
+        for (int i = a; i >= 0; i--) {          
+        tb.removeRow(tb.getRowCount()-1);
+        }
+        //cargaTicket();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,6 +96,9 @@ public class Gestion_Libros extends javax.swing.JFrame {
         btn_Ingresar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbl_Todo1 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        txt_Buscador = new javax.swing.JTextField();
+        btn_Buscar = new javax.swing.JButton();
 
         tbl_Todo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -101,10 +115,10 @@ public class Gestion_Libros extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Book Antiqua", 2, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Book Antiqua", 3, 36)); // NOI18N
         jLabel1.setText("Gestión de Libros");
 
-        btn_Volver.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+        btn_Volver.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
         btn_Volver.setText("<");
         btn_Volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,7 +126,7 @@ public class Gestion_Libros extends javax.swing.JFrame {
             }
         });
 
-        btn_Editar.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+        btn_Editar.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
         btn_Editar.setText("Editar");
         btn_Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +134,7 @@ public class Gestion_Libros extends javax.swing.JFrame {
             }
         });
 
-        btn_Eliminar.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+        btn_Eliminar.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
         btn_Eliminar.setText("Eliminar");
         btn_Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,7 +142,7 @@ public class Gestion_Libros extends javax.swing.JFrame {
             }
         });
 
-        btn_Ingresar.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+        btn_Ingresar.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
         btn_Ingresar.setText("Ingresar Nuevo Libro");
         btn_Ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,10 +163,31 @@ public class Gestion_Libros extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tbl_Todo1);
 
+        jLabel2.setText("Buscar Título: ");
+
+        btn_Buscar.setText("Buscar");
+        btn_Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_BuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(509, 545, Short.MAX_VALUE)
+                .addComponent(btn_Ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(460, 460, 460))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 991, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_Editar, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                    .addComponent(btn_Eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -161,17 +196,13 @@ public class Gestion_Libros extends javax.swing.JFrame {
                         .addGap(423, 423, 423)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 991, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_Editar, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
-                            .addComponent(btn_Eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(44, 44, 44))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btn_Ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(498, 498, 498))
+                        .addGap(401, 401, 401)
+                        .addComponent(jLabel2)
+                        .addGap(28, 28, 28)
+                        .addComponent(txt_Buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_Buscar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,18 +214,22 @@ public class Gestion_Libros extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btn_Volver)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txt_Buscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Buscar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
+                        .addGap(118, 118, 118)
                         .addComponent(btn_Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
+                        .addGap(38, 38, 38)
                         .addComponent(btn_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addComponent(btn_Ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -202,21 +237,32 @@ public class Gestion_Libros extends javax.swing.JFrame {
 
     private void btn_EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditarActionPerformed
 
+        int fila = tbl_Todo1.getSelectedRow();
+        if(fila != -1){
+            
+            Actualizar_Libro actualizar=new Actualizar_Libro((int) modelo.getValueAt(fila, 0));
         
+        this.setVisible(false);
+        actualizar.setVisible(true);
+        
+        cont=0;
+            
+        }else{
+            JOptionPane.showMessageDialog(this,"Debe seleccionar una fila");
+        } 
 
     }//GEN-LAST:event_btn_EditarActionPerformed
 
     private void btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarActionPerformed
 
-        int fila = tbl_Todo.getSelectedRow();
+        int fila = tbl_Todo1.getSelectedRow();
         if(fila != -1){
 
-            controlador.Eliminar((int) modelo.getValueAt(fila, 2));
+            controlador.Eliminar_Libro(modelo.getValueAt(fila, 0).toString());
 
             modelo.removeRow(fila);
-
-            JOptionPane.showMessageDialog(null, "Datos Eliminados", "Delete", 1);
-
+            
+            cont=0;
         }else{
             JOptionPane.showMessageDialog(this,"Debe seleccionar una fila");
         }
@@ -225,7 +271,10 @@ public class Gestion_Libros extends javax.swing.JFrame {
 
     private void btn_IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_IngresarActionPerformed
 
+        Ingresar_Libro a=new Ingresar_Libro();
         
+        a.setVisible(true);
+        this.setVisible(false);
 
     }//GEN-LAST:event_btn_IngresarActionPerformed
 
@@ -238,6 +287,42 @@ public class Gestion_Libros extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_VolverActionPerformed
 
+    private void btn_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BuscarActionPerformed
+
+        
+       
+       if(!"".equals(txt_Buscador.getText())){
+           
+           VaciarTabla();
+           
+       controlador.Buscar_Nombre(libro, txt_Buscador.getText());
+       
+       Object []object = new Object[8];
+        
+        for (int i=0; i<libro.getCodigos().size(); i++){
+            
+            object[0] = libro.getCodigos().get(i);
+            object[1] = libro.getAutores().get(i);
+            object[2] = libro.getAnios().get(i);
+            object[3] = libro.getTitulos().get(i);
+            object[4] = libro.getGeneros().get(i);
+            object[5] = libro.getDescripciones().get(i);
+            object[6] = libro.getStocks().get(i);
+            object[7] = libro.getPrecios().get(i);
+            
+            modelo.addRow(object);
+    }
+        
+        txt_Buscador.setText("");
+        
+    }//GEN-LAST:event_btn_BuscarActionPerformed
+       else{
+       
+           JOptionPane.showMessageDialog(this,"Debes ingresar un Título");
+       
+       }   }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -274,14 +359,17 @@ public class Gestion_Libros extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Buscar;
     private javax.swing.JButton btn_Editar;
     private javax.swing.JButton btn_Eliminar;
     private javax.swing.JButton btn_Ingresar;
     private javax.swing.JButton btn_Volver;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tbl_Todo;
     private javax.swing.JTable tbl_Todo1;
+    private javax.swing.JTextField txt_Buscador;
     // End of variables declaration//GEN-END:variables
 }
