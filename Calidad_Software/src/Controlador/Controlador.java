@@ -8,9 +8,11 @@ package Controlador;
 import Conexion.Conector;
 import Modelo.Datos_Libro;
 import Modelo.Factura;
+import Modelo.Facturass;
 import Modelo.Ingreso_Usuario;
 import Modelo.Libros;
 import Modelo.Usuario;
+import Vista.Facturas;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -81,14 +83,14 @@ public class Controlador {
 
     public void TraerClientes(Ingreso_Usuario datos, String usuario) {
 
-        String traer = "SELECT * FROM usuario WHERE NOMBRE_DE_USUARIO = '" + usuario+"'";
+        String traer = "SELECT * FROM usuario WHERE NOMBRE_DE_USUARIO = '" + usuario + "'";
 
         try {
             ps = conn.getConexion().prepareStatement(traer);
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                
+
                 datos.setNombre(rs.getString(1));
                 datos.setApellido(rs.getString(2));
                 datos.setCedula(rs.getInt(3));
@@ -201,11 +203,11 @@ public class Controlador {
         }
 
     }
-    
-    public void ActualizarStock(Datos_Libro datos, int codigo){
-    
-        String Update = "UPDATE libros SET STOCK= ? WHERE CODIGO_DE_LIBRO= "+codigo;
-        
+
+    public void ActualizarStock(Datos_Libro datos, int codigo) {
+
+        String Update = "UPDATE libros SET STOCK= ? WHERE CODIGO_DE_LIBRO= " + codigo;
+
         try {
             ps = conn.getConexion().prepareStatement(Update);
             ps.setInt(1, datos.getStock());
@@ -213,24 +215,25 @@ public class Controlador {
         } catch (SQLException ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
+
     }
-    
-    public void traerStock(Datos_Libro datos, int codigo){
-    
-        String traer = "SELECT STOCK FROM libros WHERE CODIGO_DE_LIBRO = "+codigo;
-        
+
+    public void traerStock(Datos_Libro datos, int codigo) {
+
+        String traer = "SELECT STOCK FROM libros WHERE CODIGO_DE_LIBRO = " + codigo;
+
         try {
             ps = conn.getConexion().prepareStatement(traer);
             rs = ps.executeQuery();
-            
+
             while (rs.next()) {
-            datos.setStock(rs.getInt(1));}
-            
+                datos.setStock(rs.getInt(1));
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
+
     }
 
     public void TraerLibros(Libros datos, String codigo) {
@@ -309,15 +312,15 @@ public class Controlador {
         }
 
     }
-    
-    public void IngresarFacturas(Factura datos){
-    
+
+    public void IngresarFacturas(Factura datos) {
+
         String insertar = "INSERT INTO factura (CEDULA_DE_IDENTIDAD, NOMBRE, DESCRIPCION, VALOR_TOTAL, CODIGO_LIBRO, CANTIDAD, PRECIO_UNIT) "
                 + "VALUES (?,?,?,?,?,?,?)";
-        
+
         try {
             ps = conn.getConexion().prepareStatement(insertar);
-            
+
             ps.setInt(1, datos.getCedula());
             ps.setString(2, datos.getNombre());
             ps.setString(3, datos.getDescripcion());
@@ -325,15 +328,54 @@ public class Controlador {
             ps.setInt(5, 1);
             ps.setInt(6, datos.getCantidad());
             ps.setFloat(7, 1);
-            
+
             ps.executeUpdate();
 
             JOptionPane.showMessageDialog(null, "Compra Realizada con Éxito");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public void TraerFacturas(Facturass datos) {
+
+        ArrayList ids = new ArrayList();
+        ArrayList cedulas = new ArrayList();
+        ArrayList cantidades = new ArrayList();
+        ArrayList nombres = new ArrayList();
+        ArrayList descripciones = new ArrayList();
+        ArrayList totales = new ArrayList();
+
+        String traer = "SELECT * FROM factura";
+
+        try {
+            ps = conn.getConexion().prepareStatement(traer);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                ids.add(rs.getString(1));
+                cedulas.add(rs.getInt(2));
+                cantidades.add(rs.getInt(4));
+                nombres.add(rs.getString(5));
+                descripciones.add(rs.getString(6));
+                totales.add(rs.getFloat(8));
+                
+            }
+            
+            datos.setIds(ids);
+            datos.setCedulas(cedulas);
+            datos.setCantidades(cantidades);
+            datos.setNombres(nombres);
+            datos.setDescripciones(descripciones);
+            datos.setTotales(totales);
             
         } catch (SQLException ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
+
     }
 
     public void TraerActualizar(Datos_Libro datos, String codigo) {

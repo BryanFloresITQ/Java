@@ -511,7 +511,15 @@ else{
             
             for (int i=0; i < filas; i++){
             
-                desc += " "+tbl_Factura.getValueAt(i, 2);
+                if(i==0){
+                
+                desc += " "+tbl_Factura.getValueAt(i, 2);}
+                
+                else{
+                
+                    desc += ", "+tbl_Factura.getValueAt(i, 2);
+                    
+                }
                 
             }
             fac.setDescripcion(desc);
@@ -543,6 +551,7 @@ else{
             VaciarTabla(tbl_Factura);
             VaciarTabla(tbl_Todo1);
             LlenarTabla();
+            txt_Total.setText("0.00");
             
         }
         
