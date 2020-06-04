@@ -464,18 +464,33 @@ else{
             
             suma =0;
             
-            String peticion = JOptionPane.showInputDialog("Introduzca la cantidad que desea:");
+            int peticion = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la cantidad que desea:"));
             
-            int cantidad = Integer.parseInt(peticion);
+            int stock = (int) tbl_Todo1.getValueAt(fila, 6);
+            
+            if(peticion > stock){
+            
+                JOptionPane.showMessageDialog(this,"Stock no disponible");
+                
+            }
+            
+            else if(peticion<=0){
+            
+                JOptionPane.showMessageDialog(this,"No se permite una cantidad negativa o igual a 0");
+                
+            }
+            
+            else{
+            
             float precio = (float) modelo.getValueAt(fila, 7);
             Object []object = new Object[8];
             
             object[0] = modelo.getValueAt(fila, 0);
-            object[1] = cantidad;
+            object[1] = peticion;
             object[2] = modelo.getValueAt(fila, 3);
             object[3] = precio;
             
-            object[4] = cantidad*precio;
+            object[4] = df.format(peticion*precio);
             factura.addRow(object);
         
         cont=0;
@@ -484,14 +499,14 @@ else{
         
             for (int i = 0; i < articulos; i++) {
                 
-                float precioF = (float) factura.getValueAt(i, 4);
+                float precioF = (float) Double.parseDouble((String) factura.getValueAt(i, 4));
                 
                 suma = suma + precioF;
                 
             }
             
             
-            txt_Total.setText(df.format(suma));
+            txt_Total.setText(df.format(suma));}
             
         }else{
             JOptionPane.showMessageDialog(this,"Debe seleccionar un Libro");
@@ -576,7 +591,7 @@ else{
         
             for (int i = 0; i < articulos; i++) {
                 
-                float precioF = (float) factura.getValueAt(i, 4);
+                float precioF = (float) Double.parseDouble((String) factura.getValueAt(i, 4));
                 
                 suma = suma + precioF;
                 

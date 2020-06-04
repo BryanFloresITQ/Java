@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.Controlador;
+import Modelo.Facturass;
 import Modelo.Usuario;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -227,14 +228,41 @@ public class Gestion_Usuarios extends javax.swing.JFrame {
 
     private void btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarActionPerformed
         
+        int Neliminar = 0;
+        
         int fila = tbl_Todo.getSelectedRow();
         if(fila != -1){
+            
+            Facturass f=new Facturass();
+            
+            controlador.TraerFacturas(f);
+            
+            for (int i=0; i<f.getCedulas().size(); i++){
+                
+                int cedula = (int) tbl_Todo.getValueAt(fila, 2);
+                int comparacion = (int) f.getCedulas().get(i);
+            
+            if(cedula == comparacion){
+            
+                Neliminar = 1;
+                
+            }
+            
+            }
+            
+            if(Neliminar == 1){
+            
+                JOptionPane.showMessageDialog(this,"No se puede Eliminar este cliente que ha realizado compras");
+                
+            }
+            
+            else{
           
             controlador.Eliminar((int) modelo.getValueAt(fila, 2));
             
             modelo.removeRow(fila);
             
-            JOptionPane.showMessageDialog(null, "Datos Eliminados", "Delete", 1);
+            JOptionPane.showMessageDialog(null, "Datos Eliminados", "Delete", 1);}
             
         }else{
             JOptionPane.showMessageDialog(this,"Debe seleccionar una fila");
