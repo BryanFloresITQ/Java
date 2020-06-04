@@ -7,6 +7,10 @@ package Vista;
 
 import Controlador.Controlador;
 import Modelo.Facturass;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -14,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Bryan
  */
 public class Facturas extends javax.swing.JFrame {
-
+    FondoPanel fondo = new FondoPanel();
     DefaultTableModel modelo;
     Controlador controlador = new Controlador();
     Facturass factura=new Facturass();
@@ -22,6 +26,7 @@ public class Facturas extends javax.swing.JFrame {
      * Creates new form Facturas
      */
     public Facturas() {
+        this.setContentPane(fondo);
         initComponents();
         
         modelo = new DefaultTableModel(){@Override
@@ -107,7 +112,7 @@ public class Facturas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 872, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btn_Volver)
@@ -125,7 +130,7 @@ public class Facturas extends javax.swing.JFrame {
                     .addComponent(btn_Volver))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
@@ -179,4 +184,15 @@ public class Facturas extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbl_facturas;
     // End of variables declaration//GEN-END:variables
+class FondoPanel extends JPanel
+    {
+        private Image imagen;
+        @Override
+        public void paint(Graphics g) {
+            imagen = new ImageIcon(getClass().getResource("/Imágenes/Login.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(),this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
 }

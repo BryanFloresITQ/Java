@@ -22,6 +22,8 @@ public class Acceso_Encargado extends javax.swing.JFrame {
     public Acceso_Encargado() {
         this.setContentPane(fondo);
         initComponents();
+        rsscalelabel.RSScaleLabel.setScaleLabel(img_Usuario, "src/Imágenes/usr.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(img_Libro, "src/Imágenes/lbs.png");
     }
 
     /**
@@ -38,6 +40,8 @@ public class Acceso_Encargado extends javax.swing.JFrame {
         btn_Cliente = new javax.swing.JButton();
         btn_Libros = new javax.swing.JButton();
         btn_Salir = new javax.swing.JButton();
+        img_Libro = new javax.swing.JLabel();
+        img_Usuario = new javax.swing.JLabel();
 
         btn_Clientes.setText("Gestión de Clientes");
         btn_Clientes.addActionListener(new java.awt.event.ActionListener() {
@@ -51,6 +55,7 @@ public class Acceso_Encargado extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Book Antiqua", 3, 36)); // NOI18N
         jLabel1.setText("Encargado");
 
+        btn_Cliente.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
         btn_Cliente.setText("Gestión de Clientes");
         btn_Cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +63,7 @@ public class Acceso_Encargado extends javax.swing.JFrame {
             }
         });
 
+        btn_Libros.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
         btn_Libros.setText("Gestión de Libros");
         btn_Libros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +71,7 @@ public class Acceso_Encargado extends javax.swing.JFrame {
             }
         });
 
+        btn_Salir.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
         btn_Salir.setText("Salir");
         btn_Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,33 +84,45 @@ public class Acceso_Encargado extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(191, 191, 191)
-                .addComponent(btn_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90)
-                .addComponent(btn_Libros, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(213, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(316, 316, 316)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_Salir)
-                .addGap(19, 19, 19))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(566, 566, 566)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(415, 415, 415)
+                        .addComponent(btn_Cliente)
+                        .addGap(80, 80, 80)
+                        .addComponent(btn_Libros)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(438, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btn_Salir)
+                        .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(img_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(103, 103, 103)
+                        .addComponent(img_Libro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(468, 468, 468))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_Salir)
+                .addGap(5, 5, 5)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_Salir)))
-                .addGap(207, 207, 207)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Libros, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(119, Short.MAX_VALUE))
+                        .addComponent(img_Libro, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_Libros, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(img_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(136, 136, 136))
         );
 
         pack();
@@ -185,6 +204,8 @@ public class Acceso_Encargado extends javax.swing.JFrame {
     private javax.swing.JButton btn_Clientes;
     private javax.swing.JButton btn_Libros;
     private javax.swing.JButton btn_Salir;
+    private javax.swing.JLabel img_Libro;
+    private javax.swing.JLabel img_Usuario;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 class FondoPanel extends JPanel

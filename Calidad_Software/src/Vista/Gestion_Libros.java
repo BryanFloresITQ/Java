@@ -7,7 +7,11 @@ package Vista;
 
 import Controlador.Controlador;
 import Modelo.Libros;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Bryan
  */
 public class Gestion_Libros extends javax.swing.JFrame {
-
+    FondoPanel fondo = new FondoPanel();
     DefaultTableModel modelo;
     Controlador controlador = new Controlador();
     Libros libro=new Libros();
@@ -25,6 +29,7 @@ public class Gestion_Libros extends javax.swing.JFrame {
      * Creates new form Gestion_Libros
      */
     public Gestion_Libros() {
+        this.setContentPane(fondo);
         initComponents();
         
         txt_Buscador.setText("");
@@ -372,4 +377,15 @@ public class Gestion_Libros extends javax.swing.JFrame {
     private javax.swing.JTable tbl_Todo1;
     private javax.swing.JTextField txt_Buscador;
     // End of variables declaration//GEN-END:variables
+class FondoPanel extends JPanel
+    {
+        private Image imagen;
+        @Override
+        public void paint(Graphics g) {
+            imagen = new ImageIcon(getClass().getResource("/Imágenes/Login.jpg")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(),this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
 }

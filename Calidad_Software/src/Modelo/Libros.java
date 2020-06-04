@@ -87,7 +87,4 @@ public class Libros {
 
     public void setPrecios(ArrayList precios) {
         this.precios = precios;
-    }
-    
-    
-}
+    }}

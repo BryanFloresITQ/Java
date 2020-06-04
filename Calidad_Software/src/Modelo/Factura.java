@@ -77,7 +77,4 @@ public class Factura {
     public void setTotal(float Total) {
         this.Total = Total;
     }
-    
-    
-    
-}
+ }

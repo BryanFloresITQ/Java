@@ -97,6 +97,4 @@ public class Datos_Libro {
     public void setStock(int stock) {
         this.stock = stock;
     }
-    
-    
-}
+ }

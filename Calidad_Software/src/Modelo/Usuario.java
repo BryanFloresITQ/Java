@@ -87,10 +87,6 @@ public class Usuario {
 
     public void setContrasenias(ArrayList contrasenias) {
         this.contrasenias = contrasenias;
-    }
-
-    
-    
-}
+    }}
 
 

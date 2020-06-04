@@ -97,7 +97,4 @@ public class Ingreso_Usuario {
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }
-    
-    
-    
 }

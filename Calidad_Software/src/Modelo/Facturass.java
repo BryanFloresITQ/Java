@@ -62,15 +62,9 @@ public class Facturass {
     public void setNombres(ArrayList nombres) {
         this.nombres = nombres;
     }
-
     public void setDescripciones(ArrayList descripciones) {
         this.descripciones = descripciones;
     }
-
     public void setTotales(ArrayList totales) {
         this.totales = totales;
-    }
-    
-    
-    
-}
+    }}

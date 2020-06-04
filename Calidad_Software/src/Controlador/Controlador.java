@@ -482,8 +482,4 @@ public class Controlador {
             datos.setPrecios(precios);
         } catch (SQLException ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-}
+        }}}
